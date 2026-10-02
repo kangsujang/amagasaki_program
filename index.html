@@ -2,114 +2,218 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- 検索エンジンに載せたくない場合はこのまま。載せてよい場合は次の1行を削除 -->
   <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-title" content="배움터">
+  <meta name="theme-color" content="#4f6cf7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234f6cf7'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E">
   <title>배움터 링크 모음 | ペウント リンク集</title>
   <style>
     :root {
-      --bg: #f7f7f4;
+      --bg: #f4f6ff;
       --card: #ffffff;
-      --text: #222222;
-      --muted: #666666;
-      --accent: #1f6feb;
-      --border: #dddddd;
+      --text: #1d2440;
+      --muted: #5b6382;
+      --border: #e1e5f5;
+      --shadow: 0 6px 0 #d9def2;
+      --hero-from: #4f6cf7;
+      --hero-to: #9b5cf6;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #16181c;
-        --card: #22252b;
-        --text: #eeeeee;
-        --muted: #aaaaaa;
-        --accent: #6ea8ff;
-        --border: #3a3e46;
+        --bg: #141729;
+        --card: #1f2440;
+        --text: #f1f3ff;
+        --muted: #b3b9d6;
+        --border: #2f3659;
+        --shadow: 0 6px 0 #0b0d1a;
+        --hero-from: #3a52d1;
+        --hero-to: #7440d4;
       }
     }
     * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      line-height: 1.7;
+      font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
     }
-    header, main, footer {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 16px;
+
+    /* ヘッダー */
+    .hero {
+      background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+      color: #fff;
+      padding: calc(36px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) 56px calc(20px + env(safe-area-inset-left));
+      border-radius: 0 0 32px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    header { padding-top: 32px; padding-bottom: 8px; }
-    h1 { font-size: 1.8rem; margin: 0 0 8px; line-height: 1.4; }
-    h1 .sub { display: block; font-size: 1.1rem; color: var(--muted); }
-    .lead { color: var(--muted); margin: 0; }
-    nav { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
-    nav a {
-      padding: 6px 14px;
-      border: 1px solid var(--border);
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .hero::before { width: 220px; height: 220px; top: -90px; left: -60px; }
+    .hero::after { width: 160px; height: 160px; bottom: -70px; right: -30px; }
+    .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.22);
       border-radius: 999px;
+      padding: 4px 16px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    h1 { margin: 0; line-height: 1.3; }
+    h1 .ko {
+      display: block;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 800;
+    }
+    h1 .ja {
+      display: block;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: bold;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+    .lead { margin: 16px 0 0; font-size: 1rem; opacity: 0.95; }
+
+    /* リンクカード */
+    main {
+      max-width: 900px;
+      margin: -28px auto 0;
+      padding: 0 calc(16px + env(safe-area-inset-right)) 24px calc(16px + env(safe-area-inset-left));
+      position: relative;
+    }
+    section { margin-bottom: 32px; }
+    h2 {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 6px 18px;
       background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      font-size: 1.1rem;
+    }
+    ul.links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 20px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.95rem;
+      overflow: hidden;
+      transition: transform 0.1s, box-shadow 0.1s;
     }
-    section { margin: 32px 0; scroll-margin-top: 16px; }
-    h2 {
-      font-size: 1.3rem;
-      margin: 0 0 12px;
-      padding-left: 10px;
-      border-left: 5px solid var(--accent);
+    .card:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 var(--border);
     }
-    ul.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-    ul.links a {
-      display: block;
-      padding: 14px 16px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--accent);
+    .card:focus-visible { outline: 4px solid var(--c); outline-offset: 3px; }
+    .card .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 132px;
+      background: var(--c);
+      font-size: 72px;
+      line-height: 1;
+    }
+    .card .body { padding: 18px 22px 8px; flex: 1; }
+    .card .name { display: block; font-size: 1.5rem; font-weight: bold; }
+    .card .desc { display: block; color: var(--muted); font-size: 1rem; margin-top: 4px; }
+    .card .go {
+      margin: 12px 22px 22px;
+      padding: 14px;
+      min-height: 56px;
+      border-radius: 16px;
+      background: var(--c);
+      color: #fff;
+      font-size: 1.15rem;
       font-weight: bold;
-      font-size: 1.1rem;
-      text-decoration: none;
+      text-align: center;
     }
-    ul.links a:hover, ul.links a:focus-visible { border-color: var(--accent); }
-    ul.links a span {
-      display: block;
+
+    footer {
+      text-align: center;
       color: var(--muted);
-      font-weight: normal;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      padding: 8px 16px calc(32px + env(safe-area-inset-bottom));
     }
-    footer { color: var(--muted); font-size: 0.85rem; padding-bottom: 32px; }
   </style>
 </head>
-<body>
-  <header>
-    <h1><span lang="ko">배움터 링크 모음</span><span class="sub">ペウント リンク集</span></h1>
-    <p class="lead">ペウントで使うサイトです。リンクは新しいタブで開きます。</p>
+<body ontouchstart="">
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="badge">ウリハッキョ</span>
+      <h1><span class="ko" lang="ko">배움터 링크 모음</span><span class="ja">ペウント リンク集</span></h1>
+      <p class="lead">つかいたいサイトのボタンをタップしてね！</p>
+    </div>
   </header>
 
   <main>
     <!--
       ▼ リンクの追加方法
-      <ul class="links"> の中に、次の1行をコピーして貼り付け、
-      URL・サイト名・説明を書き換えてください。
+      <ul class="links"> の中に、次のかたまり（<li>〜</li>）をコピーして貼り付け、
+      URL・色（--c）・絵文字・サイト名・説明を書き換えてください。
 
-      <li><a href="https://example.com" target="_blank" rel="noopener">サイト名<span>説明文</span></a></li>
+      <li>
+        <a class="card" style="--c: #3b82f6" href="https://example.com" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🌟</span>
+          <span class="body"><span class="name">サイト名</span><span class="desc">説明文</span></span>
+          <span class="go" aria-hidden="true">ひらく ▶</span>
+        </a>
+      </li>
 
       ▼ 見出しを増やす方法
       <section> 〜 </section> をまるごとコピーし、id と見出しを変更します。
     -->
 
     <section id="programming">
-      <h2>プログラミング</h2>
+      <h2>💻 プログラミング</h2>
       <ul class="links">
-        <li><a href="https://studio.code.org/jp/courses/mc/units/1/lessons/1/levels/1" target="_blank" rel="noopener">Hour of Code<span>マインクラフトの世界でプログラミングに挑戦</span></a></li>
-        <li><a href="https://scratch.mit.edu/" target="_blank" rel="noopener">Scratch<span>ブロックを組み合わせてゲームやアニメーションを作る</span></a></li>
+        <li>
+          <a class="card" style="--c: #22a05a" href="https://studio.code.org/jp/courses/mc/units/1/lessons/1/levels/1" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">⛏️</span>
+            <span class="body"><span class="name">Hour of Code</span><span class="desc">マインクラフトの世界でプログラミングに挑戦</span></span>
+            <span class="go" aria-hidden="true">ひらく ▶</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" style="--c: #f08c1a" href="https://scratch.mit.edu/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">🐱</span>
+            <span class="body"><span class="name">Scratch</span><span class="desc">ブロックを組み合わせてゲームやアニメーションを作る</span></span>
+            <span class="go" aria-hidden="true">ひらく ▶</span>
+          </a>
+        </li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>最終更新：2026年10月</p>
+    <p>リンクは新しいタブで開きます ・ 最終更新：2026年10月</p>
   </footer>
 </body>
 </html>

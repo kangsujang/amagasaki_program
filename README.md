@@ -4,10 +4,17 @@
 
 ## リンクの編集
 
-`index.html` をテキストエディタで開き、`<ul class="links">` の中に次の1行を追加します。
+`index.html` をテキストエディタで開き、`<ul class="links">` の中に次のかたまりを追加します。
+`--c` はカードの色、`icon` の中はカードに表示する絵文字です。
 
 ```html
-<li><a href="https://example.com" target="_blank" rel="noopener">サイト名<span>説明文</span></a></li>
+<li>
+  <a class="card" style="--c: #3b82f6" href="https://example.com" target="_blank" rel="noopener">
+    <span class="icon" aria-hidden="true">🌟</span>
+    <span class="body"><span class="name">サイト名</span><span class="desc">説明文</span></span>
+    <span class="go" aria-hidden="true">ひらく ▶</span>
+  </a>
+</li>
 ```
 
 見出しを増やすときは `<section>` をまるごとコピーし、`id` と見出しを変えてください。
