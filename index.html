@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 検索エンジンに載せたくない場合はこのまま。載せてよい場合は次の1行を削除 -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>授業リンク集</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #1f6feb;
+      --border: #dddddd;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16181c;
+        --card: #22252b;
+        --text: #eeeeee;
+        --muted: #aaaaaa;
+        --accent: #6ea8ff;
+        --border: #3a3e46;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.7;
+    }
+    header, main, footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    header { padding-top: 32px; padding-bottom: 8px; }
+    h1 { font-size: 1.8rem; margin: 0 0 4px; }
+    .lead { color: var(--muted); margin: 0; }
+    nav { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+    nav a {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    section { margin: 32px 0; scroll-margin-top: 16px; }
+    h2 {
+      font-size: 1.3rem;
+      margin: 0 0 12px;
+      padding-left: 10px;
+      border-left: 5px solid var(--accent);
+    }
+    ul.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    ul.links a {
+      display: block;
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    ul.links a:hover, ul.links a:focus-visible { border-color: var(--accent); }
+    ul.links a span {
+      display: block;
+      color: var(--muted);
+      font-weight: normal;
+      font-size: 0.9rem;
+    }
+    footer { color: var(--muted); font-size: 0.85rem; padding-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>授業リンク集</h1>
+    <p class="lead">授業で使うサイトへのリンクです。リンクは新しいタブで開きます。</p>
+    <nav>
+      <a href="#kokugo">国語</a>
+      <a href="#sugaku">数学</a>
+      <a href="#rika">理科</a>
+      <a href="#shakai">社会</a>
+      <a href="#eigo">英語</a>
+      <a href="#sonota">その他</a>
+    </nav>
+  </header>
+
+  <main>
+    <!--
+      ▼ リンクの追加方法
+      追加したい教科の <ul class="links"> の中に、次の1行をコピーして貼り付け、
+      URL・サイト名・説明を書き換えてください。
+
+      <li><a href="https://example.com" target="_blank" rel="noopener">サイト名<span>説明文</span></a></li>
+
+      ▼ 教科を増やす方法
+      <section> 〜 </section> をまるごとコピーし、id と見出しを変更。
+      上の <nav> にも <a href="#新しいid">教科名</a> を追加します。
+    -->
+
+    <section id="kokugo">
+      <h2>国語</h2>
+      <ul class="links">
+        <li><a href="https://www.nhk.or.jp/school/" target="_blank" rel="noopener">NHK for School<span>教科別の学習動画</span></a></li>
+      </ul>
+    </section>
+
+    <section id="sugaku">
+      <h2>数学</h2>
+      <ul class="links">
+        <li><a href="https://www.geogebra.org/?lang=ja" target="_blank" rel="noopener">GeoGebra<span>関数のグラフや図形を動かして確かめる</span></a></li>
+      </ul>
+    </section>
+
+    <section id="rika">
+      <h2>理科</h2>
+      <ul class="links">
+        <li><a href="https://www.jma.go.jp/" target="_blank" rel="noopener">気象庁<span>天気図・気象データ</span></a></li>
+      </ul>
+    </section>
+
+    <section id="shakai">
+      <h2>社会</h2>
+      <ul class="links">
+        <li><a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">地理院地図<span>国土地理院の地図・空中写真</span></a></li>
+      </ul>
+    </section>
+
+    <section id="eigo">
+      <h2>英語</h2>
+      <ul class="links">
+        <li><a href="https://www.nhk.or.jp/school/eigo/" target="_blank" rel="noopener">NHK for School 英語<span>英語の学習番組</span></a></li>
+      </ul>
+    </section>
+
+    <section id="sonota">
+      <h2>その他</h2>
+      <ul class="links">
+        <li><a href="https://www.mext.go.jp/studxstyle/" target="_blank" rel="noopener">StuDX Style（文部科学省）<span>1人1台端末の活用事例</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>最終更新：2026年10月</p>
+  </footer>
+</body>
+</html>
